@@ -5,6 +5,11 @@ const square = [
     [13, 14, 15, 16]
   ];
 
+const smallerSquare = [
+    ["a", "b", "c"],
+    ["d", "e", "f"],
+    ["g", "h", "i"]
+  ];
 
 
 function unRoll(input) {
@@ -15,14 +20,20 @@ function unRoll(input) {
             str = str + (input[i].toString()) + ","
     }
 
-    let arr = Array.from(str)
+    let arr = Array.from(str.split(","))
+    const rtrnArray = [];
 
-    for (let i=0; i < arr.length; i ++) {
+    for (let i=0; i < arr.length - 1; i ++) {
+
         if (arr[i] !== ",") {
-            arr[i] = Number(arr[i])
+            rtrnArray.push(Number(arr[i]) || arr[i])
         }
+
     }
 
-    return arr;
+    return rtrnArray;
 }
 
+
+unRoll(square)
+unRoll(smallerSquare)
